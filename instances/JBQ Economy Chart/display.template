@@ -1,0 +1,54 @@
+<!-- ko if: visibleChart() -->
+<div class="jbqeconomychart_1">
+  <div class="jbqeconomychart_1__header">
+    <div class="jbqeconomychart1__header--title">
+      <strong>Quanto economizei</strong>
+    </div>
+
+    <div class="jbqeconomychart_1__header--info">
+      <div class="jbqeconomychart_1__header--title--info">
+        <div>
+          <span>Produtos comprados:</span>
+          <span class="text-featured" data-bind="text: totalProducts"></span>
+        </div>
+
+        <div>
+          <span>Economizado:</span>
+          <span
+            class="text-featured"
+            data-bind="currency: {price: averageEconomy(), currencyObj: site().selectedPriceListGroup().currency, nullReplace: '', prependNull: false}"
+          ></span>
+        </div>
+      </div>
+
+      <select
+        name="chartFilter"
+        id="chartFilter"
+        data-bind="options: filters, optionsText: 'displayName', value: selectedFilter"
+      ></select>
+    </div>
+  </div>
+
+  <div class="jbqeconomychart_1__body">
+    <canvas
+      class="myChart"
+      id="myChart"
+      width="450"
+      height="165"
+      data-bind="onRender: getChartContext"
+    ></canvas>
+  </div>
+
+  <div class="jbqeconomychart_1__footer">
+    <div>
+      <div class="dot dot-qualidoc"></div>
+      <span>Total em compras na Qualidoc</span>
+    </div>
+
+    <div>
+      <div class="dot dot-concurrency"></div>
+      <span>Comparação com a concorrência</span>
+    </div>
+  </div>
+</div>
+<!-- /ko -->
